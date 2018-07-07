@@ -1,0 +1,6 @@
+.idea/
+.target/
+.out/
+javacore.iml
+*.class
+generate.bat
