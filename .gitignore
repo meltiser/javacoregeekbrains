@@ -1,6 +1,6 @@
 .idea/
 .target/
 .out/
-javacore.iml
+*.iml
 *.class
-generate.bat
+*.bat
