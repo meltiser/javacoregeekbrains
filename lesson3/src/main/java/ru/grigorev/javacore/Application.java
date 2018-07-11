@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @author Dmitriy Grigorev
- * The first point of hometask
+ * The first point of the hometask
  */
 public class Application {
     private static final String[] WORDS_ARRAY = {
@@ -24,8 +24,8 @@ public class Application {
             if (map.containsKey(word)) map.put(word, map.get(word) + 1); //если содержит слово - увеличиваем счетчик
             else map.put(word, 1);
         }
-        for (Map.Entry<String, Integer> mapEntry : map.entrySet()) {
-            System.out.println(String.format("%-8s : %d", mapEntry.getKey(), mapEntry.getValue()));
+        for (Map.Entry<String, Integer> pair : map.entrySet()) {
+            System.out.println(String.format("%-8s : %d", pair.getKey(), pair.getValue()));
         }
     }
 }
