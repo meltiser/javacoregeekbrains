@@ -8,7 +8,7 @@ import java.util.Map;
  * The second point of the hometask
  */
 public class Phonebook {
-    private static Map<String, String> phonebook = new HashMap<>();
+    private static final Map<String, String> PHONEBOOK = new HashMap<>();
 
     public static void main(String[] args) {
         add("Ivanov", "89111234567");
@@ -17,10 +17,12 @@ public class Phonebook {
         add("Ivanov", "89217534947");
         get("Petrov");
         get("Ivanov");
+        get(null);
     }
 
     private static void get(String lastname) {
-        for (Map.Entry<String, String> pair : phonebook.entrySet()) {
+        if (lastname == null) return;
+        for (Map.Entry<String, String> pair : PHONEBOOK.entrySet()) {
             if (pair.getValue().equals(lastname)) {
                 System.out.println(String.format("%-8s : %s", pair.getValue(), pair.getKey()));
             }
@@ -28,6 +30,6 @@ public class Phonebook {
     }
 
     private static void add(String lastname, String telephoneNumber) {
-        phonebook.put(telephoneNumber, lastname);
+        PHONEBOOK.put(telephoneNumber, lastname);
     }
 }
