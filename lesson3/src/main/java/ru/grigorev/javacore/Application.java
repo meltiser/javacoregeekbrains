@@ -13,18 +13,14 @@ public class Application {
             "make", "Great", "Britain", "great", "again",
             "Is", "London", "the", "capital"};
 
-    public static void main(String[] args) {
-        printUniqueWordsCount();
-    }
-
-    private static void printUniqueWordsCount() {
-        Map<String, Integer> map = new HashMap<>();
-        for (String s : WORDS_ARRAY) {
+    private static void printUniqueWordsCount(String[] wordsArray) {
+        final Map<String, Integer> MAP = new HashMap<>();
+        for (String s : wordsArray) {
             String word = s.toLowerCase();
-            if (map.containsKey(word)) map.put(word, map.get(word) + 1); //если содержит слово - увеличиваем счетчик
-            else map.put(word, 1);
+            if (MAP.containsKey(word)) MAP.put(word, MAP.get(word) + 1); //если содержит слово - увеличиваем счетчик
+            else MAP.put(word, 1);
         }
-        for (Map.Entry<String, Integer> pair : map.entrySet()) {
+        for (Map.Entry<String, Integer> pair : MAP.entrySet()) {
             System.out.println(String.format("%-8s : %d", pair.getKey(), pair.getValue()));
         }
     }
