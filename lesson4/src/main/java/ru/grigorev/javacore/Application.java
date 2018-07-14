@@ -1,6 +1,5 @@
 package ru.grigorev.javacore;
 
-
 /**
  * @author Dmitriy Grigorev
  */
