@@ -39,6 +39,12 @@ public class Application {
         final Thread thread2 = new Thread(() -> fillArrayWithSpecialValues(a2));
         thread1.start();
         thread2.start();
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         System.arraycopy(a1, 0, array, 0, halfSize);
         System.arraycopy(a2, 0, array, halfSize, halfSize);
