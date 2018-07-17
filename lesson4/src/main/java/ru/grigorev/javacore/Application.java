@@ -9,12 +9,12 @@ import java.awt.event.ActionListener;
  * @author Dmitriy Grigorev
  */
 public class Application extends JFrame implements ActionListener {
-    private JPanel sendingPanel;
-    private JTextField textField;
-    private String defaultMessage = " Type your message here:";
-    private JButton buttonSend;
-    private JTextArea textArea;
-    private JScrollPane textPanel;
+    private final JPanel sendingPanel;
+    private final JTextField textField;
+    private final String defaultMessage = " Type your message here:";
+    private final JButton buttonSend;
+    private final JTextArea textArea;
+    private final JScrollPane textPanel;
 
 
     public Application() {
@@ -56,11 +56,15 @@ public class Application extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(final ActionEvent e) {
+        final boolean isActionCommandTextField = e.getActionCommand().equals(defaultMessage);
+        final boolean isActionCommandButton = "Send".equals(e.getActionCommand());
+        final boolean isTextFieldEmpty = textField.getText().isEmpty();
+        final boolean isTextFieldContainsDefaulMessage = textField.getText().equals(defaultMessage);
         // получаем действие от текстового поля или от кнопки
-        if (e.getActionCommand().equals(defaultMessage) || e.getActionCommand().equals("Send")) {
+        if (isActionCommandTextField || isActionCommandButton) {
             // если поле не пустое и не содержит сообщение по умолчанию, переносим в основное окно
-            if (!textField.getText().equals("") && !textField.getText().equals(defaultMessage)) {
+            if (!isTextFieldEmpty && !isTextFieldContainsDefaulMessage) {
                 textArea.append(": " + textField.getText() + "\n");
             }
             textField.setText("");
