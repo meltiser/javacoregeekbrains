@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author Dmitriy Grigorev
  */
-public class Application {
+public final class Application {
     private static final int size = 10_000_000;
     private static final int halfSize = size / 2;
     private static final float[] array = new float[size];
@@ -15,18 +15,18 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        taskMethod1();
-        taskMethod2();
+        taskMethodSingleStream();
+        taskMethodTwoStreams();
     }
 
-    public static void taskMethod1() {
+    public static void taskMethodSingleStream() {
         final long millisBeforeCycle = System.currentTimeMillis();
         fillArrayWithSpecialValues(array);
         final long millisAfterCycle = System.currentTimeMillis();
         printMethodExecutionTime("Method #1", millisBeforeCycle, millisAfterCycle);
     }
 
-    public static void taskMethod2() {
+    public static void taskMethodTwoStreams() {
         final long millisBeforeCycle = System.currentTimeMillis();
 
         final float[] a1 = new float[halfSize];
