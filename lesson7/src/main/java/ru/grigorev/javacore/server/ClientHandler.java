@@ -46,8 +46,8 @@ public class ClientHandler {
                         System.out.println("от " + name + ": " + str);
 
                         // реализация дз
-                        if (str.startsWith("/w")) {
-                            final String[] parts = str.split("\\s+");
+                        if (str.startsWith("/w ")) {
+                            final String[] parts = str.split("\\s");
                             final ClientHandler client = myServer.getClientByNick(parts[1]);
                             if (client == null) continue;
                             String privateMessage = "private " + this.getName() + ": ";
